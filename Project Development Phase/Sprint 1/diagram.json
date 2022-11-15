@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "author": "Anandkumar Ramasamy",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": -60.67, "left": 49.33, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 182.52,
+      "left": -28.5,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 183.19,
+      "left": 76.83,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": 186.52,
+      "left": 180.17,
+      "attrs": { "color": "orange" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 249.19,
+      "left": 76.17,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 250.85,
+      "left": -31.5,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 250.52,
+      "left": 180.83,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -121.48,
+      "left": -137.17,
+      "attrs": { "distance": "165" }
+    },
+    { "type": "wokwi-servo", "id": "servo1", "top": 54.85, "left": 264.5, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "led1:A", "r2:1", "green", [ "v0" ] ],
+    [ "led2:A", "r1:1", "green", [ "v0" ] ],
+    [ "led3:A", "r3:1", "green", [ "v0" ] ],
+    [ "led1:C", "esp:GND.2", "black", [ "v69.07", "h-22.33", "v-207.33" ] ],
+    [ "led2:C", "esp:GND.1", "black", [ "v57.73", "h-13", "v-114.67", "h87.33", "v-80" ] ],
+    [ "led3:C", "esp:GND.1", "black", [ "v60.4", "h-19.67", "v-199.33" ] ],
+    [ "ultrasonic1:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "ultrasonic1:VCC", "esp:VIN", "red", [ "v0" ] ],
+    [ "servo1:GND", "esp:GND.1", "black", [ "h-75", "v-19.26" ] ],
+    [ "servo1:V+", "esp:3V3", "red", [ "h0" ] ],
+    [ "servo1:PWM", "esp:D18", "green", [ "h-70.33", "v-104.26" ] ],
+    [ "ultrasonic1:ECHO", "esp:D13", "green", [ "v0" ] ],
+    [ "ultrasonic1:TRIG", "esp:D12", "green", [ "v0" ] ],
+    [ "r3:2", "esp:D26", "green", [ "h0.34", "v15.94", "h-174.67", "v-1.33" ] ],
+    [ "r1:2", "esp:D25", "green", [ "h-2.34", "v29.93", "h-76", "v0" ] ],
+    [ "r2:2", "esp:D33", "green", [ "h-0.67", "v24.94", "h18.67", "v3.33" ] ]
+  ]
+}
